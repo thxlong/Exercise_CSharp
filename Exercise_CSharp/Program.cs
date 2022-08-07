@@ -1,10 +1,7 @@
 ﻿using Exercise_CSharp.Actions;
 using Exercise_CSharp.Exercises;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise_CSharp
 {
@@ -12,42 +9,48 @@ namespace Exercise_CSharp
     {
         static void Main(string[] args)
         {
-            int i;
+            string i;
             Console.OutputEncoding = Encoding.UTF8;
             ActionEx action = new ActionEx();
-            Excercises ex = new Excercises();
 
             action.InDeBai();
-            Console.Write("Vui lòng nhập số từ bàn phím: ");
-            i = int.Parse(Console.ReadLine());
-            while (i < 0 || i > 10)
-            {
-                Console.Write("Số nhập không hợp lệ, vui lòng nhập lại: ");
-                i = int.Parse(Console.ReadLine());
-            }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("VUI LÒNG NHẬP LỰA CHỌN BÀI TOÁN: ");
+            Program program = new Program();
+            i = Console.ReadLine();
+            program.LuaChonBaiGiai(i);
+        }
+
+        private void LuaChonBaiGiai(string i)
+        {
+            Excercises ex = new Excercises();
             switch (i)
             {
-                case 1:
+                case "A1":
                     ex.XuatRaManHinh();
                     break;
 
-                case 2:
+                case "A2":
                     ex.KhaiBaoBien();
                     break;
 
-                case 4:
+                case "C1":
                     ex.TimXYKhiBietTongHieu();
                     break;
 
-                case 5:
+                case "C2":
                     ex.BMI();
                     break;
-                case 10:
+                case "D1":
                     ex.XepLoaiHocTapBangToanTu3Ngoi();
                     break;
 
                 default:
-                    Console.WriteLine("Ko hợp lệ!");
+                    Console.WriteLine("Lựa chọn nhập không hợp lệ!");
+                    Console.ReadLine();
                     break;
             }
         }
